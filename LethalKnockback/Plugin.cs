@@ -11,7 +11,7 @@ namespace LethalKnockback
     {
         public const string modGUID = "com.jacobot5.LethalKnockback";
         public const string modName = "LethalKnockback";
-        public const string modVersion = "1.0.0";
+        public const string modVersion = "1.0.1";
 
         // Initalize Harmony
         private readonly Harmony harmony = new Harmony(modGUID);
