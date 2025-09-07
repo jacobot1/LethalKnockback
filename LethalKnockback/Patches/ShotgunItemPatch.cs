@@ -24,8 +24,11 @@ namespace LethalKnockback.Patches
         static void ContinuousKnockbackPatch(ShotgunItem __instance)
         {
             // Continuous knockback
-            __instance.playerHeldBy.externalForces += __instance.transform.forward * -currentKnockbackForce;
-            currentKnockbackForce = Mathf.Lerp(currentKnockbackForce, 0f, 5f * Time.deltaTime);
+            if (__instance.playerHeldBy == GameNetworkManager.Instance.localPlayerController && __instance.isHeld)
+            {
+                __instance.playerHeldBy.externalForces += __instance.transform.forward * -currentKnockbackForce;
+                currentKnockbackForce = Mathf.Lerp(currentKnockbackForce, 0f, 5f * Time.deltaTime);
+            }
         }
     }
 }
