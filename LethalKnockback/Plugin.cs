@@ -11,7 +11,7 @@ namespace LethalKnockback
     {
         public const string modGUID = "com.jacobot5.LethalKnockback";
         public const string modName = "LethalKnockback";
-        public const string modVersion = "1.0.1";
+        public const string modVersion = "1.1.0";
 
         // Initalize Harmony
         private readonly Harmony harmony = new Harmony(modGUID);
@@ -46,6 +46,7 @@ namespace LethalKnockback
             // Do the patching
             harmony.PatchAll(typeof(LethalKnockbackMod));
             harmony.PatchAll(typeof(ShotgunItemPatch));
+            harmony.PatchAll(typeof(KickIfModNotInstalled));
         }
     }
 }
